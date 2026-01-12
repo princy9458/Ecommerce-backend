@@ -12,7 +12,10 @@ from app.routes import (
 app = FastAPI(
     title="E-Commerce API",
     description="E-Commerce Backend using FastAPI & MongoDB",
-    version="1.0.0"
+    version="1.0.0",
+    docs_url="/docs",              # ✅ ADDED (Swagger)
+    redoc_url="/redoc",            # ✅ ADDED
+    openapi_url="/openapi.json"    # ✅ ADDED
 )
 
 # -----------------------
@@ -33,7 +36,7 @@ app.include_router(user_routes.router, prefix="/users", tags=["Users"])
 app.include_router(category_routes.router, prefix="/categories", tags=["Categories"])
 app.include_router(product_routes.router, prefix="/products", tags=["Products"])
 app.include_router(order_routes.router, prefix="/orders", tags=["Orders"])
-app.include_router(variant_routes.router, prefix="/variants", tags=["Variants"]) 
+app.include_router(variant_routes.router, prefix="/variants", tags=["Variants"])
 
 # -----------------------
 # ROOT CHECK API
